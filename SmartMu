@@ -1,0 +1,28 @@
+int sensor_chuva_min = 2;
+int sensor_chuva_max = 3;
+int sensor_reservatorio_principal = 7;
+int leitura_sensor_chuva_min = 0;
+int leitura_sensor_chuva_max = 0;
+int leitura_sensor_reservatorio = 0;
+int bomba_reservatorio_chuva = 4;
+int bomba_difusor = 5;
+int bomba = 6;
+
+void setup() {
+ Serial.begin(9600);
+ pinMode(sensor_chuva_min, INPUT);
+ pinMode(sensor_chuva_max, INPUT);
+ pinMode(bomba_reservatorio_chuva, OUTPUT);
+ pinMode(bomba_difusor, OUTPUT);
+ pinMode(bomba, OUTPUT);
+}
+
+void loop() {
+ leitura_sensor_chuva_min = digitalRead(sensor_chuva_min);
+  leitura_sensor_chuva_max = digitalRead(sensor_chuva_max);
+  Serial.print("sensor_min: ");
+  Serial.println(leitura_sensor_chuva_min);
+  Serial.print("sensor_max: ");
+  Serial.println(leitura_sensor_chuva_max);
+  delay(1000);
+}
